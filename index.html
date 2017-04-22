@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>Find Your Movie</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="public/mixitup.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    
+   <!--  <script src="public/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>
+     <link href="public/jquery-ui-1.10.2.custom.min.css" media="screen" rel="stylesheet" type="text/css"> -->
+    <!-- <script src="public/filter.js" type="text/javascript"></script> -->
+    <link rel="stylesheet" href="public/style.css">
+  </head>
+
+  <body>
+     <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+           <div class="navbar-header">
+              <img id="logo" src="public/images/logo.png">
+              <h1 class="title">Find Your Movie</h1>
+           </div>
+           <div class="nav navbar-nav navbar-right">
+             <!--  <span>Yajing </span><img id="signed" src="public/images/me.jpg"> -->
+               <a class="btn btn-info signIn" role="button" id="sign-in-with-twitter">Sign in with Twitter</a>
+           </div>          
+        </div>
+    </nav>
+
+    <nav class="sidebar col-md-3">
+      <div>
+          <label class="sr-only" for="searchbox">Search</label>
+          <input type="text" class="form-control" id="searchbox" placeholder="Search &hellip;" autocomplete="off">
+          <span class="glyphicon glyphicon-search search-icon"></span>
+      </div>
+        <hr>
+      <div class="well">
+            <fieldset id="genre_criteria">
+                <legend>Genre</legend>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" data-toggle=".Action">
+                    <span>Action<span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" data-togglee=".Adventure">
+                    <span>Adventure</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" data-toggle=".Animated">
+                    <span>Animated</span> 
+                   </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" data-toggle=".Biography">
+                    <span>Biography</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" data-toggle=".Comedy">
+                    <span>Comedy</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" data-toggle=".Documentary">
+                    <span>Documentary</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" data-toggle=".Drama">
+                    <span>Drama</span>
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" data-toggle=".Horror">
+                    <span>Horror</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" data-toggle=".Romance">
+                    <span>Romance</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" data-toggle=".Sci-Fi">
+                    <span>Sci-Fi & Fantasy</span> 
+                  </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" data-toggle=".Thriller">
+                    <span>Thriller</span> 
+                  </label>
+                </div>   
+            </fieldset>
+        </div>
+
+        <!-- <div class="well">
+            <fieldset id="runtime_criteria">
+                <legend>Year</legend> <span id="runtime_range_label" class="slider-label">2000 - 2017</span>
+                <div id="runtime_slider" class="slider">
+                </div>
+                <input type="hidden" id="runtime_filter" value="2000-2017">
+            </fieldset>
+        </div> -->
+
+        <!-- <div class="well">
+            <fieldset id="rating_criteria">
+                <legend>IMDb Rating</legend> <span id="rating_range_label" class="slider-label">0 - 10</span>
+                <div id="rating_slider" class="slider">
+                </div>
+                <input type="hidden" id="rating_filter" value="0-10">
+            </fieldset>
+        </div> -->
+
+        <div class="well">
+           <fieldset id="rating_criteria">
+           <legend class="control-label">Age Rating</legend>             
+           <select id="MPAA" class="selectpicker show-menu-arrow form-control" multiple title="Choose following...">
+                <option value="1">G</option>
+                <option value="2" >NC-17</option>
+                <option value="3">PG</option>
+                <option value="4">PG-13</option>
+                <option value="5">R</option>
+                <option value="6">Unrated</option>
+            </select>
+            </fieldset>
+        </div>
+
+       <!--  <div class="well">
+           <fieldset id="rating_criteria">
+             <legend class="control-label">Language</legend>
+             
+            <select id="MPAA" class="selectpicker show-menu-arrow form-control" multiple data-style="btn-info">
+                <option value="0">Chinese</option>
+                <option value="1">English</option>
+                <option value="2">French</option>
+                <option value="3">German</option>
+                <option value="4">Greek</option>
+                <option value="5">Italian</option>
+                <option value="6">Japanese</option>
+                <option value="6">Korean</option>
+                <option value="6">Russian</option>
+                <option value="6">Spanish</option>
+                <option value="6">Swedish</option>
+                <option value="6">Other languages</option>
+            </select>
+            </fieldset>
+        </div> -->
+     </nav>
+
+      <div class="col-md-9">
+        
+      
+      <div class="row">
+        <div class="col-sm-6">
+          <!-- <h4>Most Popular Movies</h4> -->
+        </div>
+        <div class="col-sm-6">
+          <div class="showNum" align="right">Showing 50 Titles</div>
+        </div>
+      </div>
+      <hr>
+
+      <div id="moviesContainer">
+        
+      </div>
+
+    </div>
+  </body>
+  <script type="text/javascript">
+  	$.get("/data", function(data) {
+    console.log(data);
+    for (var i=0;i<data.length;i++){
+        var moviesContainer = document.getElementById("moviesContainer");
+        var layout = document.createElement('div');
+        var grid = document.createElement('div');
+        var poster = document.createElement('img');
+        var textContent = document.createElement('div');
+        var name = document.createElement('h4');
+        var nameNode = document.createTextNode(data[i].title);
+        var year = document.createElement('span');
+        var yearNode = document.createTextNode(' (' + data[i].year + ')');
+        var imdbRating = document.createElement('div');
+        var imdbIcon = document.createElement('img');
+        var imdbNode = document.createTextNode(data[i].rating);
+        var rottenIcon = document.createElement('img');
+        var rottenNode = document.createTextNode(data[i].ratings[1].Value);
+
+        var genres = data[i].genres;
+        genres = genres.replace(/\,/g,"");
+
+        poster.setAttribute('src', data[i].poster);
+        poster.setAttribute('class','poster');
+        grid.setAttribute('class', "moviesGrid");
+        layout.setAttribute('class', "col-sm-4 mix " + genres);
+        year.setAttribute('class','year');
+        imdbIcon.setAttribute('src', 'public/images/star.png');
+        imdbIcon.setAttribute('class','star');
+        imdbRating.setAttribute('class','ratings');
+        rottenIcon.setAttribute('src', 'public/images/rotten.png');
+        rottenIcon.setAttribute('class','rotten');
+        textContent.setAttribute('class','textContent');
+
+
+        name.appendChild(nameNode);
+        year.appendChild(yearNode);
+        imdbRating.appendChild(imdbIcon);
+        imdbRating.appendChild(imdbNode);
+        imdbRating.appendChild(rottenIcon);
+        imdbRating.appendChild(rottenNode);
+        name.appendChild(year);
+        grid.appendChild(poster);
+        grid.appendChild(textContent);
+        textContent.appendChild(name);
+        textContent.appendChild(imdbRating);
+        layout.appendChild(grid);
+        moviesContainer.appendChild(layout);
+        
+        console.log(grid);
+    }
+
+    var mixer = mixitup('#moviesContainer', {
+          animation: {
+             duration: 200
+          }
+      });
+});
+  	
+// $(function() {
+//     $("#sign-in-with-twitter").on("click", function() {
+//         window.location.href = "/request-token";
+//     });
+//    });
+
+
+
+  </script>
+</html>

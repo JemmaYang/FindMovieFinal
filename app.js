@@ -22,7 +22,8 @@ var TodoSchema = new mongoose.Schema({
   languages: String,
   plot: String,
   poster: String,
-  ratings: { IMDB: String, Rotten: String },
+  IMDB: String, 
+  Rotten: String,
   trailer:String
 });
 
@@ -148,7 +149,7 @@ app.get("/data", function(req, res) {
     res.send(movie);  
 
     for(var i=0;i<movie.length;i++){
-        var todo = new Todo({name: movie[i].title, year: movie[i].year, rated: movie[i].rated, actors:movie[i].actors, director: movie[i].director, genres: movie[i].genres, languages: movie[i].languages, plot: movie[i].plot, poster: movie[i].poster, ratinggs: {IMDB: movie[i].rating, Rotten: movie[i].ratings[1].Value}, trailer:movie[i].trailer});
+        var todo = new Todo({name: movie[i].title, year: movie[i].year, rated: movie[i].rated, actors:movie[i].actors, director: movie[i].director, genres: movie[i].genres, languages: movie[i].languages, plot: movie[i].plot, poster: movie[i].poster, IMDB: movie[i].rating, Rotten: movie[i].ratings[1].Value, trailer:movie[i].trailer});
 
         todo.save(function(err){
             if(err)   {console.log(err);}
@@ -157,7 +158,7 @@ app.get("/data", function(req, res) {
                     
                     if (err) {console.error(err);}
 
-                    console.log("You have saved " + todos);         
+                    console.log("You have saved "+ todos);         
                 });
          
             }

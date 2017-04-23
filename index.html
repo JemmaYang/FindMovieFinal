@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="public/mixitup.min.js"></script>
@@ -137,7 +138,7 @@
            <legend class="control-label">Age Rating</legend>             
            <select id="MPAA" class="selectpicker show-menu-arrow form-control" multiple title="Choose following...">
                 <option value="1">G</option>
-                <option value="2" >NC-17</option>
+                <option value="2">NC-17</option>
                 <option value="3">PG</option>
                 <option value="4">PG-13</option>
                 <option value="5">R</option>
@@ -146,11 +147,11 @@
             </fieldset>
         </div>
 
-       <!--  <div class="well">
+        <div class="well">
            <fieldset id="rating_criteria">
              <legend class="control-label">Language</legend>
              
-            <select id="MPAA" class="selectpicker show-menu-arrow form-control" multiple data-style="btn-info">
+            <select id="MPAA" class="selectpicker show-menu-arrow form-control" multiple title="Choose following...">
                 <option value="0">Chinese</option>
                 <option value="1">English</option>
                 <option value="2">French</option>
@@ -165,7 +166,7 @@
                 <option value="6">Other languages</option>
             </select>
             </fieldset>
-        </div> -->
+        </div>
      </nav>
 
       <div class="col-md-9">
@@ -182,7 +183,7 @@
       <hr>
 
       <div id="moviesContainer">
-        
+
       </div>
 
     </div>
@@ -192,6 +193,9 @@
     console.log(data);
     for (var i=0;i<data.length;i++){
         var moviesContainer = document.getElementById("moviesContainer");
+        var pageLink = document.createElement('div');
+        var view = document.createElement('a');
+        var viewText = document.createTextNode('VIEW');
         var layout = document.createElement('div');
         var grid = document.createElement('div');
         var poster = document.createElement('img');
@@ -211,6 +215,7 @@
 
         poster.setAttribute('src', data[i].poster);
         poster.setAttribute('class','poster');
+        view.setAttribute('href', 'test.html');
         grid.setAttribute('class', "moviesGrid");
         layout.setAttribute('class', "col-sm-4 mix " + genres);
         year.setAttribute('class','year');
@@ -220,6 +225,8 @@
         rottenIcon.setAttribute('src', 'public/images/rotten.png');
         rottenIcon.setAttribute('class','rotten');
         textContent.setAttribute('class','textContent');
+        view.setAttribute('class','text');
+        pageLink.setAttribute('class','overlay');
 
 
         name.appendChild(nameNode);
@@ -229,10 +236,13 @@
         imdbRating.appendChild(rottenIcon);
         imdbRating.appendChild(rottenNode);
         name.appendChild(year);
+        view.appendChild(viewText);
         grid.appendChild(poster);
+        pageLink.appendChild(view);
         grid.appendChild(textContent);
         textContent.appendChild(name);
         textContent.appendChild(imdbRating);
+        grid.appendChild(pageLink);
         layout.appendChild(grid);
         moviesContainer.appendChild(layout);
         
@@ -242,17 +252,23 @@
     var mixer = mixitup('#moviesContainer', {
           animation: {
              duration: 200
-          }
+          },
+          controls: {
+             toggleLogic: 'and'
+           }
       });
 });
+
+
   	
-// $(function() {
-//     $("#sign-in-with-twitter").on("click", function() {
-//         window.location.href = "/request-token";
-//     });
-//    });
+$(function() {
+    $("#sign-in-with-twitter").on("click", function() {
+        window.location.href = "/request-token";
+    });
+   });
 
 
 
   </script>
+
 </html>

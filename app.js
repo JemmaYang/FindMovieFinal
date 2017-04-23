@@ -4,10 +4,13 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var path = require('path');
-var Twitter = require("node-twitter-api");
+var twitterAPI = require('node-twitter-api');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
+var Twitter = require('twitter');
 
+
+//SET UP MongoDB
 MONGOLAB_URI='mongodb://yajingyang626:yajingyang626@ds115671.mlab.com:15671/heroku_dm9wxbnp';
 mongoose.connect(MONGOLAB_URI);
 
@@ -30,7 +33,7 @@ var TodoSchema = new mongoose.Schema({
 // Create a model based on the schema
 var Todo = mongoose.model('Todo', TodoSchema);
  
-
+//GET movie data
 var movie = [];
 
  
@@ -139,10 +142,13 @@ imdb.getReq({ name: 'Gravity' }, (err, things) => {
      });
 });
 
-
+//set up server
 app.get('/', function (req, res) {
-   res.sendFile( __dirname + "/" + "index.html" );
-   // res.send(movie[0]);  
+   res.sendFile( __dirname + "/" + "index.html" );  
+});
+
+app.get('/test.html', function (req, res) {
+   res.sendFile( __dirname + "/" + "test.html" );
 });
 
 app.get("/data", function(req, res) {
@@ -157,15 +163,14 @@ app.get("/data", function(req, res) {
                 Todo.find(function (err, todos) {
                     
                     if (err) {console.error(err);}
-
-                    console.log("You have saved "+ todos);         
-                });
-         
-            }
           
+                });
+            }     
         });
     }
-})
+
+    console.log("You have saved "); 
+});
 
 app.use('/public', express.static(__dirname + '/public'));
 
@@ -173,19 +178,45 @@ app.listen(process.env.PORT || 3000, function () {
   console.log('Example app listening on port 3000!');
 });
 
+//twitter data
 
 var twitter = new Twitter({
-    consumerKey: 'YWYbvfXgysPHUfClO6uE9DBw',
-    consumerSecret: 'AZg9z49VhOleJd90zm3J7BAHmVuWL2xSkUx2cRzt4W4yQCVP7t',
-    callback: 'http://localhost:3000/auth/twitter/callback'
+    consumer_key: 'R3xpQmv7VdH2JIvoUoTuRDRQC',
+    consumer_secret: 'UE7fQENSPdZp0FNthv3Wzc50O5YkRRrRG0ZCtugtV5IZDwi1yD',
+    access_token_key: '733315967606890496-dUTDnbRhVRZX6zJiwIvooCPX4hFg3t0',
+    access_token_secret: '7ZOAaDLdwHcKfgPFIf1WCirSJMJD8NwVdstwk1E4onzn1'
+});
+
+// twitter.get('search/tweets', { q: 'banana since:2016-07-11', count: 2 }, function(err, data, response) {
+//   console.log(data)
+// });
+
+// twitter.post('statuses/update', { status: 'test02!' }, function(err, data, response) {
+//   console.log(data)
+// });
+
+// twitter.stream('statuses/filter', {track: 'javascript'}, function(stream) {
+//   stream.on('data', function(event) {
+//     console.log(event && event.text);
+//   });
+ 
+//   stream.on('error', function(error) {
+//     throw error;
+//   });
+// });
+
+var testAPI = new twitterAPI({
+    consumerKey: 'R3xpQmv7VdH2JIvoUoTuRDRQC',
+    consumerSecret: 'UE7fQENSPdZp0FNthv3Wzc50O5YkRRrRG0ZCtugtV5IZDwi1yD',
+    callback: 'https://find-your-movie.herokuapp.com/'
 });
 
 var _requestSecret;
 
  app.get("/request-token", function(req, res) {
-        twitter.getRequestToken(function(err, requestToken, requestSecret) {
+        testAPI.getRequestToken(function(err, requestToken, requestSecret) {
         	 console.log(requestSecret);
-              console.log(requestToken);
+             console.log(requestToken);
             if (err)  {
             	res.status(500).send(err);    
             }
@@ -202,15 +233,16 @@ var _requestSecret;
       var requestToken = req.query.oauth_token,
       verifier = req.query.oauth_verifier;
 
-        twitter.getAccessToken(requestToken, _requestSecret, verifier, function(err, accessToken, accessSecret) {
+       testAPI.getAccessToken(requestToken, _requestSecret, verifier, function(err, accessToken, accessSecret) {
             if (err)
                 res.status(500).send(err);
             else
-                twitter.verifyCredentials(accessToken, accessSecret, function(err, user) {
+                testAPI.verifyCredentials(accessToken, accessSecret, function(err, user) {
                     if (err)
                         res.status(500).send(err);
                     else
                         res.send(user);
+                        consolo.log(user);
                 });
         });
     });

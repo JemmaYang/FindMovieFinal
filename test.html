@@ -1,29 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-  <title>Find Your Movie</title>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
-    <script src="public/mixitup.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="public/style.css">
+
   </head>
 
   <body>
-            <select id="MPAA" class="selectpicker show-menu-arrow form-control" multiple title="Choose following...">
-                <option value="1">G</option>
-                <option value="2">NC-17</option>
-                <option value="3">PG</option>
-                <option value="4">PG-13</option>
-                <option value="5">R</option>
-                <option value="6">Unrated</option>
-            </select>
+    <button id="back" class="btn btn-default" onclick="goBack()">Back</button>
+    <div class="container">
+      <div class="col-md-9">
+          <h1 class="title">LIFE (2017)</h1>
+      </div>
+     <!--  <a href="#" class="singIn"><img src="resources/images/me.jpg" width="50px" height="50px" border="0"></a> -->
+       <a class="btn btn-info signIn" role="button" id="sign-in-with-twitter">Sign in with Twitter</a>
+      <div class="row">
+         <!-- Right Side -->
+         <div class="col-md-8">
+            <!-- tailor -->
+            <div class="video-container"><iframe src="http://www.imdb.com/videoembed/vi2757015065" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+           
+            <div class="row">
+                <hr>
+              <div class="col-sm-9">
+                <div class="well" id= "introduction">
+                  <p>R | 1h 44min | Horror, Sci-Fi, Thriller | 24 March 2017 (USA)</p>
+                  <hr>
+                
+                  <p>A team of scientists aboard the International Space Station discover a rapidly evolving life form, that caused extinction on Mars, and now threatens the crew and all life on Earth.</p>
+                  <hr>
+                
+                  <p><b>Director:</b> Daniel Espinosa</p>
+                  <p><b>Writers:</b> Rhett Reese, Paul Wernick</p>
+                  <p><b>Stars:</b> Jake Gyllenhaal, Rebecca Ferguson, Ryan Reynolds </p>
+                </div>
+              </div>
+
+              <div class="col-sm-3">
+                <div class="row">
+                  <img class="stars" src="public/images/star.png">
+                  <div class="IMDBratings">7.1/10</div>
+                </div>
+               <hr>
+                 <div class="row">
+                  <img class="stars" src="public/images/star02.png">
+                  <div class="IMDBratings">0.0<span class="user">/Your rate</span></div>
+                </div>
+                <hr>
+                <a class="btn btn-info signIn" role="button" id="sign-in-with-twitter">Post Tweet!</a>
+              </div>
+            </div>
+
+
+
+            <h3>GIFs</h3>
+            <div class="row">
+              <div class="col-sm-4">
+                
+                  <iframe src="http://giphy.com/embed/4YUaRZAP0ikSc" width=100%  frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                
+              </div>
+              <div class="col-sm-4">
+               
+                  <iframe src="http://giphy.com/embed/MqQQE3F9Zjow8" width=100% frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                
+              </div>
+              <div class="col-sm-4">
+                
+                  <iframe src="http://giphy.com/embed/1FOhUDnhP2c2k" width=100% frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                
+              </div> 
+            </div>
+        
+         </div>
+      <!-- End Right Side -->
+         
+      <!-- Left Side -->
+        <div class="col-sm-4">
+          <h3>Watch now</h3>
+          <!-- <div class="well"> -->
+            <a class="btn btn-default" href="https://www.amazon.com/" role="button"><img class="icons" src="public/images/amazon.png"></a>
+            <a class="btn btn-default" href="http://www.apple.com/itunes/" role="button"><img class="icons" src="public/images/apple.svg"></a>
+            <a class="btn btn-default" href="http://play.hbogo.com/" role="button"><img class="icons" src="public/images/hbo.png"></a>
+          <!-- </div> -->
+          <h3>Add to playlist</h3>
+            <a class="btn btn-default" href="#" role="button"><img class="icons" src="public/images/plus.png"></a>
+          <hr>
+
+          <h3>Friends' Reviews</h3>
+          <div class="well">
+            <div class="row">
+              <div class="profile"><img  src="public/images/dan.jpg" width=100% ></div>
+              <div class="content">             
+                <div><b>Dan Pritchard‏</b> @DanP2077</div>
+                <div>I think the moral of the story of #lifemovie is DON'T resurrect dormant alien cells.</div> 
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/sam.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>SamSko‏</b> @samsko</div>
+                <div> #lifemovie is terrifying. The amount of 'fucks' that came out of my mouth in the last 2 hours are inumerable.</div>
+              </div> 
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/aysha.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>Aysha Ridzuan‏</b> @ayshardzn</div>
+                <div>Wow #LIFEmovie is one good sci-fi horror movie. 15 minutes after it's over I'm still affected by it. 😣</div>
+              </div>  
+            </div>
+          </div> 
+          
+          <h3>Public Reviews</h3>
+          <div id="publicComments" class="well">
+            <div class="row">
+              <div class="profile"><img src="public/images/cyd.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>cyd‏</b> @mememuhamad</div>
+                <div> #lifemovie was good and awfully gory at the same time (for me) because I hate Calvin! Wanna know wtf Calvin is? Go watch Life! 👍🏼</div>
+              </div> 
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/ezra.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>Ezra‏</b> @fadzrulafzal </div>
+                <div>Smh I wanna watch #PowerRangersMovie and #LifeMovie asap so bad :(</div>
+              </div> 
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/vindo.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>#VinodCookware‏</b> @PinkyDholakia </div>
+                <div>The film follows a six-member crew of the International Space Station #LIFEmovie</div>
+              </div> 
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/rhys.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>Rhys Drury‏</b> @rhysgdrury </div>
+                <div> Okay #LifeMovie is a helluva lot better than I was expecting.</div>
+              </div> 
+            </div>
+            
+    
+          </div> 
+
+        </div>
+        <!-- End Left Side -->
+
+      </div>
+ 
+    </div>
   </body>
 </html>

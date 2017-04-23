@@ -58,10 +58,10 @@ imdb.getReq({ name: 'Get Out' }, (err, things) => {
      });
 });
 
-imdb.getReq({ name: 'Hacksaw Ridge' }, (err, things) => {
+imdb.getReq({ name: 'The Godfather' }, (err, things) => {
     movie[3] = things;
    
-    movieTrailer('Hacksaw Ridge', function (err, url) {
+    movieTrailer('The Godfather', function (err, url) {
 	movie[3].trailer = url;
      });
 });

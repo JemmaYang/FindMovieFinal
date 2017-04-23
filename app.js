@@ -5,6 +5,29 @@ var app = express();
 var fs = require('fs');
 var path = require('path');
 var Twitter = require("node-twitter-api");
+var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+
+MONGOLAB_URI='mongodb://yajingyang626:yajingyang626@ds115671.mlab.com:15671/heroku_dm9wxbnp';
+mongoose.connect(MONGOLAB_URI);
+
+//Data schema in database
+var TodoSchema = new mongoose.Schema({
+  name: String,
+  year: String,
+  rated: String,
+  actors: String,
+  director:String,
+  genres:String,
+  languages: String,
+  plot: String,
+  poster: String,
+  ratings: { IMDB: String, Rotten: String },
+  trailer:String
+});
+
+// Create a model based on the schema
+var Todo = mongoose.model('Todo', TodoSchema);
  
 
 var movie = [];
@@ -123,6 +146,24 @@ app.get('/', function (req, res) {
 
 app.get("/data", function(req, res) {
     res.send(movie);  
+
+    for(var i=0;i<movie.length;i++){
+        var todo = new Todo({name: movie[i].title, year: movie[i].year, rated: movie[i].rated, actors:movie[i].actors, director: movie[i].director, genres: movie[i].genres, languages: movie[i].languages, plot: movie[i].plot, poster: movie[i].poster, ratinggs: {IMDB: movie[i].rating, Rotten: movie[i].ratings[1].Value}, trailer:movie[i].trailer});
+
+        todo.save(function(err){
+            if(err)   {console.log(err);}
+            else  {
+                Todo.find(function (err, todos) {
+                    
+                    if (err) {console.error(err);}
+
+                    console.log("You have saved " + todos);         
+                });
+         
+            }
+          
+        });
+    }
 })
 
 app.use('/public', express.static(__dirname + '/public'));

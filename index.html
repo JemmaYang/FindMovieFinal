@@ -30,8 +30,7 @@
               <h1 class="title">Find Your Movie</h1>
            </div>
            <div class="nav navbar-nav navbar-right">
-             <!--  <span>Yajing </span><img id="signed" src="public/images/me.jpg"> -->
-               <a class="btn btn-info signIn" role="button" id="sign-in-with-twitter">Sign in with Twitter</a>
+              <a href="profile.html" class="signed">Hello! Jemma<img id="signed" src="public/images/me.jpg"></a>
            </div>          
         </div>
     </nav>
@@ -151,7 +150,7 @@
            <fieldset id="rating_criteria">
              <legend class="control-label">Language</legend>
              
-            <select id="MPAA" class="selectpicker show-menu-arrow form-control" multiple title="Choose following...">
+            <select id="language" class="selectpicker show-menu-arrow form-control" multiple title="Choose following...">
                 <option value="0">Chinese</option>
                 <option value="1">English</option>
                 <option value="2">French</option>
@@ -215,7 +214,7 @@
 
         poster.setAttribute('src', data[i].poster);
         poster.setAttribute('class','poster');
-        view.setAttribute('href', 'test.html');
+        view.setAttribute('href', 'gravity.html');
         grid.setAttribute('class', "moviesGrid");
         layout.setAttribute('class', "col-sm-4 mix " + genres);
         year.setAttribute('class','year');
@@ -261,13 +260,17 @@
 
 
   	
-$(function() {
-    $("#sign-in-with-twitter").on("click", function() {
-        window.location.href = "/request-token";
-    });
-   });
+// $(function() {
+//     $("#sign-in-with-twitter").on("click", function() {
+//         window.location.href = "/request-token";
+//     });
+//    });
 
-
+// $(function() {
+//     $.get("/access-token" + location.search).done(function(user) {
+//                   console.log(user);
+//               });
+//   });
 
   </script>
 

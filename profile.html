@@ -15,14 +15,15 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
            <div class="navbar-header">
-               <button id="back" class="btn btn-default" onclick="goBack()">Back</button>
-
-              <h1 class="title">Find Your Movie</h1>
-              
+              <a href="/">
+                <img id="logo" src="public/images/logo.png">
+                <h1 class="title">Find Your Movie</h1>
+              </a>
            </div>
-           <div class="nav navbar-nav navbar-right">
-              <a href="profile.html" class="signed">Hello! Jemma<img id="signed" src="public/images/me.jpg"></a>
-           </div>          
+           <div class="nav navbar-nav navbar-right dropdown">
+              <div class="signed">Hello! Jemma<img id="signed" src="public/images/me.jpg"></div>
+              <a href="profile.html" class="dropdown-content">My Playlist</a>     
+           </div>            
         </div>
     </nav>
 
@@ -33,6 +34,14 @@
         <hr>
         <div id="moviesContainer"></div>
     </div>
+
+    <div  class="footer">
+      <div class="container">
+        <hr>
+        <p class="text-muted credit" id="footText">© 2017 Jemma Yang | Find Your Movie</p>
+      </div>
+    </div>
+
     
 
 
@@ -40,7 +49,7 @@
   <script type="text/javascript">
      $.get("/profile", function(data) {
       console.log(data);
-      for (var i=0;i<data.length;i++){
+      // for (var i=0;i<data.length;i++){
         var moviesContainer = document.getElementById("moviesContainer");
         var pageLink = document.createElement('div');
         var view = document.createElement('a');
@@ -52,19 +61,19 @@
         var name = document.createElement('h4');
         var nameNode = document.createTextNode("La La Land");
         var year = document.createElement('span');
-        var yearNode = document.createTextNode(' (' + data[i].year + ')');
+        var yearNode = document.createTextNode(' (' + data.year + ')');
         var imdbRating = document.createElement('div');
         var imdbIcon = document.createElement('img');
-        var imdbNode = document.createTextNode(data[i].IMDB);
+        var imdbNode = document.createTextNode(data.IMDB);
         var rottenIcon = document.createElement('img');
-        var rottenNode = document.createTextNode(data[i].Rotten);
+        var rottenNode = document.createTextNode(data.Rotten);
 
-        var genres = data[i].genres;
+        var genres = data.genres;
         genres = genres.replace(/\,/g,"");
 
-        poster.setAttribute('src', data[i].poster);
+        poster.setAttribute('src', data.poster);
         poster.setAttribute('class','poster');
-        view.setAttribute('href', 'gravity.html');
+        view.setAttribute('href', 'lalaLand.html');
         grid.setAttribute('class', "moviesGrid");
         layout.setAttribute('class', "col-sm-4 mix " + genres);
         year.setAttribute('class','year');
@@ -74,7 +83,7 @@
         rottenIcon.setAttribute('src', 'public/images/rotten.png');
         rottenIcon.setAttribute('class','rotten');
         textContent.setAttribute('class','textContent');
-        view.setAttribute('class','text');
+        view.setAttribute('class','viewText');
         pageLink.setAttribute('class','overlay');
 
 
@@ -97,12 +106,8 @@
         moviesContainer.appendChild(layout);
         
         console.log(grid);
-    }
+    // }
      });
-
-    function goBack() {
-    window.history.back();
-   }
 
   </script>
   </html>

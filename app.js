@@ -63,10 +63,10 @@ imdb.getReq({ name: 'Get Out' }, (err, things) => {
      });
 });
 
-imdb.getReq({ name: 'The Godfather' }, (err, things) => {
+imdb.getReq({ name: 'WALL·E' }, (err, things) => {
     movie[3] = things;
    
-    movieTrailer('The Godfather', function (err, url) {
+    movieTrailer('WALL·E', function (err, url) {
 	movie[3].trailer = url;
      });
 });
@@ -79,10 +79,10 @@ imdb.getReq({ name: 'Lion' }, (err, things) => {
      });
 });
 
-imdb.getReq({ name: 'What Ever Happened to Baby Jane?' }, (err, things) => {
+imdb.getReq({ name: 'The Intouchables' }, (err, things) => {
     movie[5] = things;
    
-    movieTrailer('What Ever Happened to Baby Jane?', function (err, url) {
+    movieTrailer('The Intouchables', function (err, url) {
 	movie[5].trailer = url;
      });
 });
@@ -143,13 +143,149 @@ imdb.getReq({ name: 'Gravity' }, (err, things) => {
      });
 });
 
+imdb.getReq({ name: 'Arrival' }, (err, things) => {
+    movie[13] = things;
+   
+    movieTrailer('Arrival', function (err, url) {
+    movie[13].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'Deadpool' }, (err, things) => {
+    movie[14] = things;
+   
+    movieTrailer('Deadpool', function (err, url) {
+    movie[14].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'The Dark Knight' }, (err, things) => {
+    movie[15] = things;
+   
+    movieTrailer('The Dark Knight', function (err, url) {
+    movie[15].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'Inception' }, (err, things) => {
+    movie[16] = things;
+   
+    movieTrailer('Inception', function (err, url) {
+    movie[16].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'The Pianist' }, (err, things) => {
+    movie[17] = things;
+   
+    movieTrailer('The Pianist', function (err, url) {
+    movie[17].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'A Beautiful Mind' }, (err, things) => {
+    movie[18] = things;
+   
+    movieTrailer('A Beautiful Mind', function (err, url) {
+    movie[18].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'Inside Job' }, (err, things) => {
+    movie[19] = things;
+   
+    movieTrailer('Inside Job', function (err, url) {
+    movie[19].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'Before the Flood' }, (err, things) => {
+    movie[20] = things;
+   
+    movieTrailer('Before the Flood', function (err, url) {
+    movie[20].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'Twilight' }, (err, things) => {
+    movie[21] = things;
+   
+    movieTrailer('Twilight', function (err, url) {
+    movie[21].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'Blue Is the Warmest Color' }, (err, things) => {
+    movie[22] = things;
+   
+    movieTrailer('Blue Is the Warmest Color', function (err, url) {
+    movie[22].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'The Dreamers' }, (err, things) => {
+    movie[23] = things;
+   
+    movieTrailer('The Dreamers', function (err, url) {
+    movie[23].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'The Girl with the Dragon Tattoo' }, (err, things) => {
+    movie[24] = things;
+   
+    movieTrailer('The Girl with the Dragon Tattoo', function (err, url) {
+    movie[24].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'Suntan' }, (err, things) => {
+    movie[25] = things;
+   
+    movieTrailer('Suntan', function (err, url) {
+    movie[25].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'Stoker' }, (err, things) => {
+    movie[26] = things;
+   
+    movieTrailer('Stoker', function (err, url) {
+    movie[26].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'Amélie' }, (err, things) => {
+    movie[27] = things;
+   
+    movieTrailer('Amélie', function (err, url) {
+    movie[27].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'Let the Right One In' }, (err, things) => {
+    movie[28] = things;
+   
+    movieTrailer('Let the Right One In', function (err, url) {
+    movie[28].trailer = url;
+     });
+});
+
+imdb.getReq({ name: 'The Lives of Others' }, (err, things) => {
+    movie[29] = things;
+   
+    movieTrailer('The Lives of Others', function (err, url) {
+    movie[29].trailer = url;
+     });
+});
+
 //set up server
 app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "index.html" );  
 });
 
-app.get('/gravity.html', function (req, res) {
-   res.sendFile( __dirname + "/" + "gravity.html" );
+app.get('/lalaLand.html', function (req, res) {
+   res.sendFile( __dirname + "/" + "lalaLand.html" );
 });
 
 app.get('/profile.html', function (req, res) {
@@ -157,7 +293,20 @@ app.get('/profile.html', function (req, res) {
 });
 
 app.get("/data", function(req, res) {
-    res.send(movie);  
+    
+    res.send(movie); 
+
+    for(var i=0;i<movie.length;i++){
+
+       var todo = new Todo({name: movie[i].title, year: movie[i].year, rated: movie[i].rated, actors:movie[i].actors, director: movie[i].director, genres: movie[i].genres, languages: movie[i].languages, plot: movie[i].plot, poster: movie[i].poster, IMDB: movie[i].rating, Rotten: movie[i].ratings[1].Value, trailer:movie[i].trailer});
+       
+       todo.save(function(err){
+          if(err)   {console.log(err);}
+             else  {
+               
+             }
+       });
+    }
 
 });
 
@@ -176,7 +325,7 @@ var twitter = new Twitter({
     access_token_secret: '7ZOAaDLdwHcKfgPFIf1WCirSJMJD8NwVdstwk1E4onzn1'
 });
 
-app.get("/gravity", function(req, res){
+app.get("/lalaLand", function(req, res){
 
   twitter.get('search/tweets', { q: 'La La Land', count:15}, function(err, data, response) {
     var test =[];
@@ -189,89 +338,30 @@ app.get("/gravity", function(req, res){
    });
 });
 
+var savedMovie = [];
+
 app.get("/save", function(req,res){
 
-    var todo = new Todo({name: movie[1].title, year: movie[1].year, rated: movie[1].rated, actors:movie[1].actors, director: movie[1].director, genres: movie[1].genres, languages: movie[1].languages, plot: movie[1].plot, poster: movie[1].poster, IMDB: movie[1].rating, Rotten: movie[1].ratings[1].Value, trailer:movie[1].trailer});
-
-    todo.save(function(err){
-        
-        if(err)   {console.log(err);}
-            
-        else  {
-                Todo.find(function (err, todos) {
+    Todo.findOne({'name': 'La La Land' },function (err, todos) {
                     
-                    if (err) {console.error(err);}
-          
-                });
-            }     
-        });
+        if (err) {console.error(err);}
+        else{
+           savedMovie = todos;
+           console.log(savedMovie);
+           res.send(savedMovie);
+        }     
+    });
+   
  });
 
 app.get("/profile", function(req, res){
-         Todo.find(function (err, todos) {
-                    
-                    if (err) {console.error(err);}
-
-                    else{
-                     res.json(todos);
-                     console.log("You find " + todos); 
-                    }
-          
-         });
+     res.send(savedMovie);
+      console.log(savedMovie);
             
 });
+
+
 // twitter.post('statuses/update', { status: 'test02!' }, function(err, data, response) {
 //   console.log(data)
 // });
 
-// twitter.stream('statuses/filter', {track: 'MovieGravity'}, function(stream) {
-//   stream.on('data', function(event) {
-//     console.log(event && event.text);
-//   });
- 
-//   stream.on('error', function(error) {
-//     throw error;
-//   });
-// });
-
-// var testAPI = new twitterAPI({
-//     consumerKey: 'R3xpQmv7VdH2JIvoUoTuRDRQC',
-//     consumerSecret: 'UE7fQENSPdZp0FNthv3Wzc50O5YkRRrRG0ZCtugtV5IZDwi1yD',
-//     callback: '/index.html'
-// });
-
-// var _requestSecret;
-
-//  app.get("/request-token", function(req, res) {
-//         testAPI.getRequestToken(function(err, requestToken, requestSecret) {
-//         	 console.log(requestSecret);
-//              console.log(requestToken);
-//             if (err)  {
-//             	res.status(500).send(err);    
-//             }
-                
-//             else {
-//                 _requestSecret = requestSecret;
-//                 res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + requestToken);
-
-//             }
-//         });
-//     });
-
-//  app.get("/access-token", function(req, res) {
-//       var requestToken = req.query.oauth_token,
-//       verifier = req.query.oauth_verifier;
-
-//        testAPI.getAccessToken(requestToken, _requestSecret, verifier, function(err, accessToken, accessSecret) {
-//             if (err)
-//                 res.status(500).send(err);
-//             else
-//                 testAPI.verifyCredentials(accessToken, accessSecret, function(err, user) {
-//                     if (err)
-//                         res.status(500).send(err);
-//                     else
-//                         res.send(user);
-//                         consolo.log(user);
-//                 });
-//         });
-//     });

@@ -450,7 +450,7 @@ function getLanguage(value){
             type: 'double',
             step: 1,
             onFinish: function (year) {
-               resetDisplay();
+               // resetDisplay();
                year.to = parseInt(year.to)+1;
 
                var startRange = range(2000, year.from, 1);
@@ -487,7 +487,7 @@ function getLanguage(value){
             type: 'double',
             step: 1,
             onFinish: function (data) {
-               resetDisplay();
+               // resetDisplay();
                data.to = parseInt(data.to)+1;
                var startRange = range(1, data.from, 1);
                var endRange = range(data.to, 11, 1);

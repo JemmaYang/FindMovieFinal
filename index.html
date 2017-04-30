@@ -486,6 +486,7 @@ function getLanguage(value){
             to: 10,
             type: 'double',
             step: 1,
+         
             onFinish: function (data) {
                // resetDisplay();
                data.to = parseInt(data.to)+1;
@@ -539,8 +540,11 @@ function range(from, to, step){
 
  function resetDisplay(){
     var gridNode = document.getElementsByClassName('mix');
-    for (e = 0; e < gridNode.length; e++) {  
+    
+    for (e = 0; e < gridNode.length; e++) { 
+     
         gridNode[e].style.display = 'block';
+      
     }
  }
 

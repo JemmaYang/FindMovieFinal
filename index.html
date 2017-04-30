@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
    
-   <!--  <link rel="stylesheet" href="public/normalize.css" /> -->
     <link rel="stylesheet" href="public/ion.rangeSlider.css" />
     <link rel="stylesheet" href="public/ion.rangeSlider.skinHTML5.css"/>
     <script src="public/ion.rangeSlider.min.js"></script>
@@ -279,9 +278,12 @@
 
       <div id="moviesContainer">
 
+
       </div>
 
     </div>
+
+   
 
      <div id="footer">
       <div class="container">
@@ -319,12 +321,15 @@
         var rated = data[i].rated;
         var language = data[i].languages;
         language = language.replace(/\,/g,"");
+        var ratingNum = data[i].rating;
+        ratingNum = parseInt(ratingNum); 
+        ratingNum = Math.floor(ratingNum);
 
         poster.setAttribute('src', data[i].poster);
         poster.setAttribute('class','poster');
         view.setAttribute('href', 'lalaLand.html');
         grid.setAttribute('class', "moviesGrid");
-        layout.setAttribute('class', "col-sm-4 mix " + genres + " " +rated + " " + language);
+        layout.setAttribute('class', "col-sm-4 mix " + genres + " " +rated + " " + language + " " + data[i].year + " " + ratingNum );
         year.setAttribute('class','year');
         imdbIcon.setAttribute('src', 'public/images/star.png');
         imdbIcon.setAttribute('class','star');
@@ -441,12 +446,32 @@ function getLanguage(value){
             min: 2000,
             max: 2017,
             from: 2000,
-            to: 2010,
+            to: 2017,
             type: 'double',
             step: 1,
-            onFinish: function (data) {
-               console.log(data.from+", "+data.to);
-             },
+            onFinish: function (year) {
+               resetDisplay();
+               year.to = parseInt(year.to)+1;
+
+               var startRange = range(2000, year.from, 1);
+               var endRange = range(year.to, 2018, 1);
+               var newRangeArray = startRange.concat(endRange);
+
+               console.log(newRangeArray);
+
+               for (var i=0;i<newRangeArray.length;i++){
+                   var gridNode = document.getElementsByClassName(newRangeArray[i]);
+ 
+                   if (gridNode.length != 0){
+                       console.log('set');
+                       for (e = 0; e < gridNode.length; e++) {
+                          gridNode[e].style.display = 'none';
+                       }
+                   } 
+
+                }
+          
+            },
         });
 
     });
@@ -458,15 +483,68 @@ function getLanguage(value){
             min: 1,
             max: 10,
             from: 1,
-            to: 6,
+            to: 10,
             type: 'double',
             step: 1,
             onFinish: function (data) {
-               console.log(data.from+", "+data.to);
+               resetDisplay();
+               data.to = parseInt(data.to)+1;
+               var startRange = range(1, data.from, 1);
+               var endRange = range(data.to, 11, 1);
+               var newRangeArray = startRange.concat(endRange);
+               console.log(newRangeArray);
+
+               for (var i=0;i<newRangeArray.length;i++){
+                   var gridNode = document.getElementsByClassName(newRangeArray[i]);
+ 
+                   if (gridNode.length != 0){
+                       console.log('set');
+                       for (e = 0; e < gridNode.length; e++) {
+                          gridNode[e].style.display = 'none';
+                       }
+                   } 
+
+                }
+               
              },
         });
 
     });
+
+function range(from, to, step){
+  var fromNode = parseInt(from); 
+  var endNode = parseInt(to); 
+  var length = endNode - fromNode;
+  var rangeArray = [];
+
+  if  (length <= 0){
+
+    rangeArray = [];
+  }
+
+  else{
+     // fromNode =  fromNode+1;
+     for (var i=0;i<length;i++){
+        
+        var fromString = fromNode.toString();
+        rangeArray.push(fromString);
+        fromNode = fromNode + step;
+     }
+
+  }
+
+  return rangeArray;
+
+}
+
+ function resetDisplay(){
+    var gridNode = document.getElementsByClassName('mix');
+    for (e = 0; e < gridNode.length; e++) {  
+        gridNode[e].style.display = 'block';
+    }
+ }
+
+  
   </script>
 
 </html>

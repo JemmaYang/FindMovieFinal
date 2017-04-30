@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+   <script src="public/list.min.js"></script>
+
+  </head>
+
+  <body>
+
+  
+  <div id="test-list">
+    <input type="text" class="search" />
+    <ul class="list">
+      <li><p class="name">Guybrush Threepwood</p></li>
+      <li><p class="name">Elaine Marley</p></li>
+      <li><p class="name">LeChuck</p></li>
+      <li><p class="name">Stan</p></li>
+      <li><p class="name">Voodoo Lady</p></li>
+      <li><p class="name">Herman Toothrot</p></li>
+      <li><p class="name">Meathook</p></li>
+      <li><p class="name">Carla</p></li>
+      <li><p class="name">Otis</p></li>
+      <li><p class="name">Rapp Scallion</p></li>
+      <li><p class="name">Rum Rogers Sr.</p></li>
+      <li><p class="name">Men of Low Moral Fiber</p></li>
+      <li><p class="name">Murray</p></li>
+      <li><p class="name">Cannibals</p></li>
+    </ul>
+    <ul class="pagination"></ul>
+  </div>
+
+  </body>
+  <script type="text/javascript">
+      var monkeyList = new List('test-list', {
+  valueNames: ['name'],
+  page: 3,
+  pagination: true
+});
+  </script>
+
+  </html>
+

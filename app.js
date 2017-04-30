@@ -356,8 +356,22 @@ app.get("/save", function(req,res){
 
 app.get("/profile", function(req, res){
      res.send(savedMovie);
-      console.log(savedMovie);
+     console.log(savedMovie);
             
+});
+
+app.get("/year/:year.from, year.to", function(req, res) {
+    
+        Todo.find({'name': 'La La Land' },function (err, todos) {
+                    
+        if (err) {console.error(err);}
+        else{
+           
+           console.log(todos);
+           
+        }     
+    });
+
 });
 
 

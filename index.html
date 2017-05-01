@@ -33,7 +33,7 @@
            </div>
            <div class="nav navbar-nav navbar-right dropdown">
               <div class="signed">Hello! Jemma<img id="signed" src="public/images/me.jpg"></div>
-              <a href="profile.html" class="dropdown-content">My Playlist</a>     
+              <a href="profile.html" class="dropdown-content" target="_blank">My Playlist</a>     
            </div>            
         </div>
     </nav>
@@ -327,7 +327,7 @@
 
         poster.setAttribute('src', data[i].poster);
         poster.setAttribute('class','poster');
-        view.setAttribute('href', 'lalaLand.html');
+        // view.setAttribute('href', 'lalaLand.html');
         grid.setAttribute('class', "moviesGrid");
         layout.setAttribute('class', "col-sm-4 mix " + genres + " " +rated + " " + language + " " + data[i].year + " " + ratingNum );
         year.setAttribute('class','year');
@@ -358,7 +358,7 @@
         layout.appendChild(grid);
         moviesContainer.appendChild(layout);
         
-        console.log(layout);
+        // console.log(layout);
     }
 
     var mixer = mixitup('#moviesContainer', {
@@ -370,6 +370,27 @@
              toggleLogic: 'and'
            }
       });
+
+    var deepGrid = document.getElementsByClassName('mix');
+
+    var galaxy = deepGrid[7].getElementsByTagName('a');
+    galaxy[0].setAttribute('href',"galaxy.html");
+    galaxy[0].setAttribute('target',"_blank");
+
+    var inception = deepGrid[16].getElementsByTagName('a');
+    inception[0].setAttribute('href',"inception.html");
+    inception[0].setAttribute('target',"_blank");
+
+    var rogue = deepGrid[9].getElementsByTagName('a');
+    rogue[0].setAttribute('href',"rogueone.html");
+    rogue[0].setAttribute('target',"_blank");
+
+    var arrival = deepGrid[13].getElementsByTagName('a');
+    arrival[0].setAttribute('href',"arrival.html");
+    arrival[0].setAttribute('target',"_blank");
+    // console.log(galaxy);
+    
+
 });
 
 var genreArray =[];

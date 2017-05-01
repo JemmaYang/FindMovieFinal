@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+
+    <link rel="stylesheet" href="public/style.css">
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+           <div class="navbar-header">
+              <a href="/">
+                <img id="logo" src="public/images/logo.png">
+                <h1 class="title">Find Your Movie</h1>
+              </a>
+           </div>
+           <div class="nav navbar-nav navbar-right dropdown">
+              <div class="signed">Hello! Jemma<img id="signed" src="public/images/me.jpg"></div>
+              <a href="profile.html" class="dropdown-content" target="_blank">My Playlist</a>     
+           </div>          
+        </div>
+    </nav>
+
+    <div class="container">
+      <div class="col-md-9">
+          <h1 class="movieTitle">Guardians of the Galaxy (2014)</h1>
+      </div>
+      <div class="row">
+         <!-- Right Side -->
+         <div class="col-md-8">
+            <!-- tailor -->
+            <div class="video-container"><iframe src="http://www.imdb.com/videoembed/vi1441049625" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+           
+            <div class="row" id="movieContent">
+              <div class="col-sm-9">
+                <div class="well" id= "introduction">
+                  <p>PG-13 | 2h 01min | Action, Adventure, Sci-Fi | 10 October 2014 (USA)</p>
+                  <hr>
+                
+                  <p>After stealing a mysterious orb in the far reaches of outer space, Peter Quill from Earth, is now the main target of a manhunt led by the villain known as Ronan the Accuser. To help fight Ronan and his team and save the galaxy from his power, Quill creates a team of space heroes known as the "Guardians of the Galaxy" to save the world.</p>
+                  <hr>
+                
+                  <p><b>Director:</b> James Gunn</p>
+                  <p><b>Writers:</b> James Gunn, Nicole Perlman</p>
+                  <p><b>Stars:</b> Chris Pratt, Vin Diesel, Bradley Cooper</p>
+                </div>
+              </div>
+
+              <div class="col-sm-3">
+                <div class="row">
+                  <img class="stars" src="public/images/star.png">
+                  <div class="IMDBratings">8.1/10</div>
+                </div>
+               <hr>
+                 <div class="row" id="userRated" style="display: none;">
+                   <img class="stars" src="public/images/star.png">
+                   <div class="IMDBratings">
+                      <div id = "userPoints">0.0</div>
+                      <div class="user">Your rate</div>
+                   </div>  
+                </div>
+                <div id = "userRatingArea">
+                  <div id="rateYo"></div>
+                  <button id="getRating" class='btn btn-info'>Give Your Rate</button>
+                </div>
+                
+              </div>
+            </div>
+
+
+
+            <h3>GIFs</h3>
+            <hr>
+            <div class="row">
+              <div class="col-sm-4">
+                  <iframe src="https://giphy.com/embed/F9hQLAVhWnL56" width=100%  frameBorder="0" class="giphy-embed" allowFullScreen></iframe> 
+              </div>
+
+              <div class="col-sm-4">
+                  <iframe src="https://giphy.com/embed/10Cobd2khK6i0E" width=100% frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+              </div>
+
+              <div class="col-sm-4">      
+                 <iframe src="https://giphy.com/embed/20vKUAXGPfcQ" width=100% frameBorder="0" class="giphy-embed" allowFullScreen></iframe> 
+              </div> 
+            </div>
+
+            <div class="row">
+              <div class="col-sm-4">
+                  <iframe src="https://giphy.com/embed/OX4gSBDCloO0E" width=100%  frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+              </div>
+
+              <div class="col-sm-4">
+                  <iframe src="https://giphy.com/embed/HUQNzWCkT2FNu" width=100% frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+              </div>
+
+              <div class="col-sm-4">      
+                 <iframe src="https://giphy.com/embed/CawhQMTmDUNaw" width=100% frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+              </div> 
+            </div>
+
+            <hr>
+
+            <div class="row">
+              <textarea cols="5" id="tweetContent" placeholder="What do you think about the movie?" maxlength="140"></textarea>
+              <img id="postImg" src="public/images/me.jpg">
+            </div>
+            <div class="row">
+              <a class="btn btn-info" id="postTweets" role="button">Post Tweet!</a>
+            </div>
+        
+         </div>
+      <!-- End Right Side -->
+         
+      <!-- Left Side -->
+        <div class="col-sm-4">
+          <h3>Watch now</h3>
+          <!-- <div class="well"> -->
+            <a class="btn btn-default" href="https://www.amazon.com/Guardians-Galaxy-Theatrical-Chris-Pratt/dp/B00QROI70S/ref=sr_1_1?s=instant-video&ie=UTF8&qid=1493589408&sr=1-1&keywords=Guardians+of+the+Galaxy" role="button" target="_blank"><img class="icons" src="public/images/amazon.png"></a>
+            <a class="btn btn-default" href="https://itunes.apple.com/us/movie/guardians-of-the-galaxy/id899347364?ign-mpt=uo%3D5" role="button" target="_blank"><img class="icons" src="public/images/apple.svg"></a>
+            <a class="btn btn-default" href="http://www.vudu.com/movies/#!content/548108/Guardians-of-the-Galaxy" role="button" target="_blank"><img class="icons" src="public/images/vudu.png"></a>
+          <!-- </div> -->
+          <h3>Add to playlist</h3>
+            <a class="btn btn-default" href="#" role="button"><img id="addList" class="icons" src="public/images/plus.png" onclick="saveInfo()"></a>
+          <div class="alert success" id="alertBox" style= "display: none;">
+              <span id="closebtn">&times;</span>  
+              <strong>Success!</strong> You save this movie to playlist.
+          </div>
+          <hr>
+
+          <h3><img class="icons" src="public/images/twitter.png"> Friends' Reviews</h3>
+          <div id="friendComments" class="well">
+            <div class="row">
+              <div class="profile"><img  src="public/images/tara.jpg" width=100% ></div>
+              <div class="content">             
+                <div><b>Tara‏</b> @low_pulse</div> 
+                <div>Had my mom and step-dad watch Guardians of the Galaxy for the first time today - they loved it! Score! @Guardians @Marvel</div> 
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/sid.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>sidney◡̈‏</b> @bassasass</div>
+                <div>Guardians of the Galaxy is such a good movie</div>
+              </div> 
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/brook.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>brookie g‏</b> @brookecgoodrich</div>
+                <div>I need to watch guardians of the galaxy again who wants to join</div>
+              </div>  
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/eld.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>El Diablo‏</b> @ElDiabloBrewery</div> 
+                <div>Great evening with my niece and nephew watching guardians of the galaxy and antman. Plus BBQ! What Christmas holidays are all about</div>
+              </div>  
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/ezra.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>Ezra‏</b> @fadzrulafzal</div>
+                <div>I always rewatch Guardians Of The Galaxy</div>
+              </div>  
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/rhys.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>#VinodCookware‏</b> @PinkyDholakia</div>
+                <div>As far as I'm concerned Guardians of the Galaxy is the best film ever.</div>
+              </div>  
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/samToop.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>Sam‏</b> @SamToop_</div>  
+                <div>Finally watched guardians of the galaxy, awesome film with an equally as awesome soundtrack.</div>
+              </div>  
+            </div>
+          </div> 
+          
+          <h3><img class="icons" src="public/images/twitter.png"> Public Reviews</h3>
+          <div id="publicComments" class="well">
+    
+          </div> 
+
+        </div>
+        <!-- End Left Side -->
+
+      </div>
+ 
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <hr>
+        <p class="text-muted credit" id="footText">© 2017 Jemma Yang | Find Your Movie</p>
+      </div>
+    </div>
+
+  </body>
+  <script type="text/javascript">
+      $.get("/galaxy", function(tweets) {
+        console.log(tweets);
+        for (var i=0;i<tweets.length;i++){
+            var tweetsContainer = document.getElementById("publicComments");
+            var tweetLay = document.createElement('div');
+            var imgContainer = document.createElement('a');
+            var imgGrid = document.createElement('img');
+            var contentLay = document.createElement('div');
+            var nameGrid = document.createElement('div');
+            var nameNode = document.createTextNode(" @"+tweets[i].user.screen_name);
+            var userName = document.createElement('b');
+            var userNameNode = document.createTextNode(tweets[i].user.name);
+            var Text = document.createElement('div');
+            var TextNode = document.createTextNode(tweets[i].text);
+            var line = document.createElement('hr');
+
+            Text.appendChild(TextNode);
+            userName.appendChild(userNameNode);
+            nameGrid.appendChild(userName);
+            nameGrid.appendChild(nameNode);
+            contentLay.appendChild(nameGrid);
+            contentLay.appendChild(Text);
+            imgContainer.appendChild(imgGrid);
+            tweetLay.appendChild(imgContainer);
+            tweetLay.appendChild(contentLay);
+            tweetsContainer.appendChild(tweetLay);
+            tweetsContainer.appendChild(line);
+
+            tweetLay.setAttribute('class','row');
+            imgContainer.setAttribute('class','profile');
+            contentLay.setAttribute('class','content');
+            imgGrid.setAttribute('src',tweets[i].user.profile_image_url_https);
+            imgGrid.setAttribute('width','100%');
+            imgContainer.setAttribute('href',tweets[i].user.url)
+        }
+      });
+
+    function saveInfo(){
+      var movieName = "Guardians of the Galaxy";
+      $.get('/save/'+ movieName, function(data) {
+          console.log(data);
+          var addImg = document.getElementById("addList");
+          var index = data.length-1;
+          addImg.setAttribute("src", data[index].poster);
+          addImg.removeAttribute("onclick");
+          
+          var alert = document.getElementById("alertBox");
+          alert.style.display = "block";
+       });
+    }
+
+  var close = document.getElementById("closebtn");
+
+  close.onclick = function(){
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function(){ div.style.display = "none"; }, 600);
+    }
+
+
+$(function () {
+ 
+  $("#rateYo").rateYo({
+    maxValue: 10,
+    numStars: 5,
+    normalFill: "#A0A0A0"
+  });
+ 
+});
+
+$(function () {
+ 
+  var $rateYo = $("#rateYo").rateYo();
+ 
+  $("#getRating").click(function () {
+ 
+    var rating = $rateYo.rateYo("rating");
+    var points = document.getElementById('userPoints');
+    points.innerHTML = rating;
+
+    document.getElementById('userRated').style.display = "block";
+    document.getElementById('userRatingArea').style.display = "none";
+ 
+  });
+});
+
+
+$("#postTweets").click(function (){   
+   var content = document.getElementById("tweetContent").value;
+   console.log(content);
+   
+   if (content != null){
+      var targetContainer = document.getElementById("friendComments");
+      var line = document.createElement('hr');
+      var newTweet = document.createElement('div');
+      var imgContainer = document.createElement('div');
+      var profileImg = document.createElement('img');
+      var tweetContent = document.createElement('div');
+      var tweetName = document.createElement('div');
+      var tweetText = document.createElement('div');
+      var tweetTextNode = document.createTextNode(content);
+
+      tweetName.innerHTML = "<b>Yajing Yang</b> @Jemma_Yang";
+      tweetText.appendChild(tweetTextNode);
+      tweetContent.appendChild(tweetName);
+      tweetContent.appendChild(tweetText);
+      imgContainer.appendChild(profileImg);
+      newTweet.appendChild(imgContainer);
+      newTweet.appendChild(tweetContent);
+      targetContainer.appendChild(line);
+      targetContainer.appendChild(newTweet);
+
+      newTweet.setAttribute("class","row");
+      imgContainer.setAttribute('class','profile');
+      profileImg.setAttribute('src','public/images/me.jpg');
+      profileImg.setAttribute('width','100%');
+      tweetContent.setAttribute('class','content');
+
+      document.getElementById("tweetContent").value = "";
+   }
+
+});
+
+
+  </script>
+</html>

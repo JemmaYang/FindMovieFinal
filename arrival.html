@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+
+    <link rel="stylesheet" href="public/style.css">
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+           <div class="navbar-header">
+              <a href="/">
+                <img id="logo" src="public/images/logo.png">
+                <h1 class="title">Find Your Movie</h1>
+              </a>
+           </div>
+           <div class="nav navbar-nav navbar-right dropdown">
+              <div class="signed">Hello! Jemma<img id="signed" src="public/images/me.jpg"></div>
+              <a href="profile.html" class="dropdown-content" target="_blank">My Playlist</a>     
+           </div>          
+        </div>
+    </nav>
+
+    <div class="container">
+      <div class="col-md-9">
+          <h1 class="movieTitle">Arrival (2016)</h1>
+      </div>
+      <div class="row">
+         <!-- Right Side -->
+         <div class="col-md-8">
+            <!-- tailor -->
+            <div class="video-container"><iframe src="https://www.imdb.com/videoembed/vi4225807897" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+           
+            <div class="row" id="movieContent">
+              <div class="col-sm-9">
+                <div class="well" id= "introduction">
+                  <p>PG-13 | 1h 56min | Drama, Sci-Fi | 11 November 2016 (USA)</p>
+                  <hr>
+                
+                  <p>When mysterious spacecraft touch down across the globe, an elite team - led by expert linguist Louise Banks - is brought together to investigate. As mankind teeters on the verge of global war, Banks and the team race against time for answers - and to find them, she will take a chance that could threaten her life, and quite possibly humanity.</p>
+                  <hr>
+                
+                  <p><b>Director:</b> Denis Villeneuve</p>
+                  <p><b>Writers:</b> Eric Heisserer, Ted Chiang</p>
+                  <p><b>Stars:</b> Amy Adams, Jeremy Renner, Forest Whitaker</p>
+                </div>
+              </div>
+
+              <div class="col-sm-3">
+                <div class="row">
+                  <img class="stars" src="public/images/star.png">
+                  <div class="IMDBratings">8.0/10</div>
+                </div>
+               <hr>
+                 <div class="row" id="userRated" style="display: none;">
+                   <img class="stars" src="public/images/star.png">
+                   <div class="IMDBratings">
+                      <div id = "userPoints">0.0</div>
+                      <div class="user">Your rate</div>
+                   </div>  
+                </div>
+                <div id = "userRatingArea">
+                  <div id="rateYo"></div>
+                  <button id="getRating" class='btn btn-info'>Give Your Rate</button>
+                </div>
+                
+              </div>
+            </div>
+
+
+
+            <h3>GIFs</h3>
+            <hr>
+            <div class="row">
+              <div class="col-sm-4">
+                  <iframe src="https://giphy.com/embed/3oriOeYGl5MKFtb2FO" width=100%  frameBorder="0" class="giphy-embed" allowFullScreen></iframe> 
+              </div>
+
+              <div class="col-sm-4">
+                  <iframe src="https://giphy.com/embed/l0HlSltRd3pwQ7c08" width=100% frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+              </div>
+
+              <div class="col-sm-4">      
+                 <iframe src="https://giphy.com/embed/3o7TKuQo5VpLLVz6W4" width=100% frameBorder="0" class="giphy-embed" allowFullScreen></iframe> 
+              </div> 
+            </div>
+
+            <div class="row">
+              <div class="col-sm-4">
+                  <iframe src="https://giphy.com/embed/l0HlKHdkpww29bpYs" width=100%  frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+              </div>
+
+              <div class="col-sm-4">
+                  <iframe src="https://giphy.com/embed/WzUIxjYEiUi3u" width=100% frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+              </div>
+
+              <div class="col-sm-4">      
+                 <iframe src="https://giphy.com/embed/Cu0oFn4whZG2Q" width=100% frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+              </div> 
+            </div>
+
+            <hr>
+
+            <div class="row">
+              <textarea cols="5" id="tweetContent" placeholder="What do you think about the movie?" maxlength="140"></textarea>
+              <img id="postImg" src="public/images/me.jpg">
+            </div>
+            <div class="row">
+              <a class="btn btn-info" id="postTweets" role="button">Post Tweet!</a>
+            </div>
+        
+         </div>
+      <!-- End Right Side -->
+         
+      <!-- Left Side -->
+        <div class="col-sm-4">
+          <h3>Watch now</h3>
+          <!-- <div class="well"> -->
+            <a class="btn btn-default" href="https://www.amazon.com/Arrival-Amy-Adams/dp/B01M3XJHGR/ref=sr_1_1?s=instant-video&ie=UTF8&qid=1493594730&sr=1-1&keywords=arrival" role="button" target="_blank"><img class="icons" src="public/images/amazon.png"></a>
+            <a class="btn btn-default" href="https://itunes.apple.com/us/movie/god-of-thunder-thor/id1114191720?ign-mpt=uo%3D5" role="button" target="_blank"><img class="icons" src="public/images/apple.svg"></a>
+            <a class="btn btn-default" href="http://www.vudu.com/movies/#!content/826376/Arrival/" role="button" target="_blank"><img class="icons" src="public/images/vudu.png"></a>
+          <!-- </div> -->
+          <h3>Add to playlist</h3>
+            <a class="btn btn-default" href="#" role="button"><img id="addList" class="icons" src="public/images/plus.png" onclick="saveInfo()"></a>
+          <div class="alert success" id="alertBox" style= "display: none;">
+              <span id="closebtn">&times;</span>  
+              <strong>Success!</strong> You save this movie to playlist.
+          </div>
+          <hr>
+
+          <h3><img class="icons" src="public/images/twitter.png"> Friends' Reviews</h3>
+          <div id="friendComments" class="well">
+            <div class="row">
+              <div class="profile"><img  src="public/images/eoin.jpg" width=100% ></div>
+              <div class="content">             
+                <div><b>Eoin ⛅‏</b> @RvnawayTrain</div>  
+                <div>I just finished watching Arrival and spent the entire credits contemplating life and the world and... that movie is phenomenal❤</div> 
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/aysha.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>Heath‏</b> @Hrutkayyy</div>
+                <div>The movie Arrival messed up my mind so bad.</div>
+              </div> 
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/abeys.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>Charana Abeys‏</b> @SwizzyC</div> 
+                <div>Arrival was a dope movie! Finally an intelligent take on aliens without lasers and mass destruction.</div>
+              </div>  
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/allen.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>Allen Y. Tien MD MHS‏</b> @allentien</div> 
+                <div>The science fiction movie #Arrival shows how #language empowers #cognition and better non-zero sum decisions; science fact today says same.</div>
+              </div>  
+            </div>
+            <hr>
+            <div class="row">
+              <div class="profile"><img src="public/images/celine.jpg" width=100% ></div>
+              <div class="content">
+                <div ><b>c e l i n e‏</b> @defuseceline</div> 
+                <div>wow.......i've just finished the movie arrival and i'm mindfked, such a deep and complex sci-fi movie, idk what to feel.</div>
+              </div>  
+            </div>
+          </div> 
+          
+          <h3><img class="icons" src="public/images/twitter.png"> Public Reviews</h3>
+          <div id="publicComments" class="well">
+    
+          </div> 
+
+        </div>
+        <!-- End Left Side -->
+
+      </div>
+ 
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <hr>
+        <p class="text-muted credit" id="footText">© 2017 Jemma Yang | Find Your Movie</p>
+      </div>
+    </div>
+
+  </body>
+  <script type="text/javascript">
+      $.get("/arrival", function(tweets) {
+        console.log(tweets);
+        for (var i=0;i<tweets.length;i++){
+            var tweetsContainer = document.getElementById("publicComments");
+            var tweetLay = document.createElement('div');
+            var imgContainer = document.createElement('a');
+            var imgGrid = document.createElement('img');
+            var contentLay = document.createElement('div');
+            var nameGrid = document.createElement('div');
+            var nameNode = document.createTextNode(" @"+tweets[i].user.screen_name);
+            var userName = document.createElement('b');
+            var userNameNode = document.createTextNode(tweets[i].user.name);
+            var Text = document.createElement('div');
+            var TextNode = document.createTextNode(tweets[i].text);
+            var line = document.createElement('hr');
+
+            Text.appendChild(TextNode);
+            userName.appendChild(userNameNode);
+            nameGrid.appendChild(userName);
+            nameGrid.appendChild(nameNode);
+            contentLay.appendChild(nameGrid);
+            contentLay.appendChild(Text);
+            imgContainer.appendChild(imgGrid);
+            tweetLay.appendChild(imgContainer);
+            tweetLay.appendChild(contentLay);
+            tweetsContainer.appendChild(tweetLay);
+            tweetsContainer.appendChild(line);
+
+            tweetLay.setAttribute('class','row');
+            imgContainer.setAttribute('class','profile');
+            contentLay.setAttribute('class','content');
+            imgGrid.setAttribute('src',tweets[i].user.profile_image_url_https);
+            imgGrid.setAttribute('width','100%');
+            imgContainer.setAttribute('href',tweets[i].user.url)
+        }
+      });
+
+    function saveInfo(){
+      var movieName = "Arrival";
+      $.get('/save/'+ movieName, function(data) {
+          console.log(data);
+          var addImg = document.getElementById("addList");
+          var index = data.length -1;
+          addImg.setAttribute("src", data[index].poster);
+          addImg.removeAttribute("onclick");
+          
+          var alert = document.getElementById("alertBox");
+          alert.style.display = "block";
+       });
+    }
+
+  var close = document.getElementById("closebtn");
+
+  close.onclick = function(){
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function(){ div.style.display = "none"; }, 600);
+    }
+
+
+$(function () {
+ 
+  $("#rateYo").rateYo({
+    maxValue: 10,
+    numStars: 5,
+    normalFill: "#A0A0A0"
+  });
+ 
+});
+
+$(function () {
+ 
+  var $rateYo = $("#rateYo").rateYo();
+ 
+  $("#getRating").click(function () {
+ 
+    var rating = $rateYo.rateYo("rating");
+    var points = document.getElementById('userPoints');
+    points.innerHTML = rating;
+
+    document.getElementById('userRated').style.display = "block";
+    document.getElementById('userRatingArea').style.display = "none";
+ 
+  });
+});
+
+
+$("#postTweets").click(function (){   
+   var content = document.getElementById("tweetContent").value;
+   console.log(content);
+   
+   if (content != null){
+      var targetContainer = document.getElementById("friendComments");
+      var line = document.createElement('hr');
+      var newTweet = document.createElement('div');
+      var imgContainer = document.createElement('div');
+      var profileImg = document.createElement('img');
+      var tweetContent = document.createElement('div');
+      var tweetName = document.createElement('div');
+      var tweetText = document.createElement('div');
+      var tweetTextNode = document.createTextNode(content);
+
+      tweetName.innerHTML = "<b>Yajing Yang</b> @Jemma_Yang";
+      tweetText.appendChild(tweetTextNode);
+      tweetContent.appendChild(tweetName);
+      tweetContent.appendChild(tweetText);
+      imgContainer.appendChild(profileImg);
+      newTweet.appendChild(imgContainer);
+      newTweet.appendChild(tweetContent);
+      targetContainer.appendChild(line);
+      targetContainer.appendChild(newTweet);
+
+      newTweet.setAttribute("class","row");
+      imgContainer.setAttribute('class','profile');
+      profileImg.setAttribute('src','public/images/me.jpg');
+      profileImg.setAttribute('width','100%');
+      tweetContent.setAttribute('class','content');
+
+      document.getElementById("tweetContent").value = "";
+   }
+
+});
+
+
+  </script>
+</html>

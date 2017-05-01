@@ -284,8 +284,20 @@ app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "index.html" );  
 });
 
-app.get('/lalaLand.html', function (req, res) {
-   res.sendFile( __dirname + "/" + "lalaLand.html" );
+app.get('/inception.html', function (req, res) {
+   res.sendFile( __dirname + "/" + "inception.html" );
+});
+
+app.get('/galaxy.html', function (req, res) {
+   res.sendFile( __dirname + "/" + "galaxy.html" );
+});
+
+app.get('/arrival.html', function (req, res) {
+   res.sendFile( __dirname + "/" + "arrival.html" );
+});
+
+app.get('/rogueone.html', function (req, res) {
+   res.sendFile( __dirname + "/" + "rogueone.html" );
 });
 
 app.get('/profile.html', function (req, res) {
@@ -325,9 +337,48 @@ var twitter = new Twitter({
     access_token_secret: '7ZOAaDLdwHcKfgPFIf1WCirSJMJD8NwVdstwk1E4onzn1'
 });
 
-app.get("/lalaLand", function(req, res){
+app.get("/arrival", function(req, res){
 
-  twitter.get('search/tweets', { q: 'La La Land', count:15}, function(err, data, response) {
+  twitter.get('search/tweets', { q: 'movie Arrival', count:15}, function(err, data, response) {
+    var test =[];
+
+    for (var i=0;i<data.statuses.length;i++){
+        test[i] = data.statuses[i];
+     }
+      // console.log(test);
+      res.send(test);
+   });
+});
+
+app.get("/galaxy", function(req, res){
+
+  twitter.get('search/tweets', { q: 'Guardians of the Galaxy', count:15}, function(err, data, response) {
+    var test =[];
+
+    for (var i=0;i<data.statuses.length;i++){
+        test[i] = data.statuses[i];
+     }
+      // console.log(test);
+      res.send(test);
+   });
+});
+
+app.get("/inception", function(req, res){
+
+  twitter.get('search/tweets', { q: 'inception movie', count:15}, function(err, data, response) {
+    var test =[];
+
+    for (var i=0;i<data.statuses.length;i++){
+        test[i] = data.statuses[i];
+     }
+      // console.log(test);
+      res.send(test);
+   });
+});
+
+app.get("/rogueone", function(req, res){
+
+  twitter.get('search/tweets', { q: 'Rogue One', count:15}, function(err, data, response) {
     var test =[];
 
     for (var i=0;i<data.statuses.length;i++){
@@ -340,13 +391,14 @@ app.get("/lalaLand", function(req, res){
 
 var savedMovie = [];
 
-app.get("/save", function(req,res){
+app.get("/save/:movieName", function(req,res){
+    var  movieName = req.params.movieName;
 
-    Todo.findOne({'name': 'La La Land' },function (err, todos) {
+    Todo.findOne({'name': movieName },function (err, todos) {
                     
         if (err) {console.error(err);}
         else{
-           savedMovie = todos;
+           savedMovie.push(todos);
            console.log(savedMovie);
            res.send(savedMovie);
         }     

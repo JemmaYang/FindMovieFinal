@@ -48,8 +48,9 @@
   </body>
   <script type="text/javascript">
      $.get("/profile", function(data) {
-      console.log(data);
-      // for (var i=0;i<data.length;i++){
+      
+      // console.log(data[0]);
+       for (var i=0;i<data.length;i++){
         var moviesContainer = document.getElementById("moviesContainer");
         var pageLink = document.createElement('div');
         var view = document.createElement('a');
@@ -59,21 +60,27 @@
         var poster = document.createElement('img');
         var textContent = document.createElement('div');
         var name = document.createElement('h4');
-        var nameNode = document.createTextNode("La La Land");
+        var nameNode = document.createTextNode(data[i].name);
         var year = document.createElement('span');
-        var yearNode = document.createTextNode(' (' + data.year + ')');
+        var yearNode = document.createTextNode(' (' + data[i].year + ')');
         var imdbRating = document.createElement('div');
         var imdbIcon = document.createElement('img');
-        var imdbNode = document.createTextNode(data.IMDB);
+        var imdbNode = document.createTextNode(data[i].IMDB);
         var rottenIcon = document.createElement('img');
-        var rottenNode = document.createTextNode(data.Rotten);
+        var rottenNode = document.createTextNode(data[i].Rotten);
 
-        var genres = data.genres;
-        genres = genres.replace(/\,/g,"");
-
-        poster.setAttribute('src', data.poster);
+        var genres = data[i].genres;
+        var movieTitle = data[i].name;
+        var movieName = ["Inception", "Guardians of the Galaxy", "Arrival", "Rogue One"];
+        var movieLink = ['inception.html', 'galaxy.html', 'arrival.html', 'rogueone.html',];
+        var position = movieName.indexOf(movieTitle);
+        var playLink = movieLink[position];
+        // genres = genres.replace(/\,/g,"");
+        
+        poster.setAttribute('src', data[i].poster);
         poster.setAttribute('class','poster');
-        view.setAttribute('href', 'lalaLand.html');
+        view.setAttribute('href', playLink);
+        console.log(playLink);
         grid.setAttribute('class', "moviesGrid");
         layout.setAttribute('class', "col-sm-4 mix " + genres);
         year.setAttribute('class','year');
@@ -106,8 +113,9 @@
         moviesContainer.appendChild(layout);
         
         console.log(grid);
-    // }
+       }
      });
+
 
   </script>
   </html>
